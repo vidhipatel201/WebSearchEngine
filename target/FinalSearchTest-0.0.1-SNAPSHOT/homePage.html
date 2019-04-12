@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Search ?</title>
+<script type="text/javascript" src="js/angular.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+
+</head>
+<body ng-app="myApp" ng-controller="searchController">
+	<div>
+		<h1
+			style="text-align: center; color: #3EA055; font-size: 65px; font-family: Arial, Helvetica, sans-serif;">Search?</h1>
+	</div>
+
+	<div class='search-area' >
+		<div class='codehim-ss-bar'>
+			<form method="post" target="_top" ng-submit="search()">
+				<input type='text' id="TypeNow" autocomplete="off"
+					oninput="undisableBtn()" ng-model="inputKeyword" name="q"
+					placeholder="Find topic now..." />
+				<button type="submit" class="codehim-circle-search-button">
+				</button>
+			</form>
+		</div>
+	</div>
+	<div ng-if="flag">Did you mean: {{suggestedWord}}</div>
+	<div ng-if="!flag1">
+		<ul ng-repeat="res in result">
+			<li>{{res}}</li>
+		</ul>
+
+	</div>
+	<div ng-if="flag1">No results Found</div>
+
+</body>
+</html>
